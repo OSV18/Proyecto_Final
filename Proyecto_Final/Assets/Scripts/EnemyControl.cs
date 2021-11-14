@@ -4,38 +4,47 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    [SerializeField] float SpeedEnemy = 4f;
+    [SerializeField] float speedEnemy = 4f;
+    [SerializeField] float attackRange = 1f;
+
+    
     private GameObject player;
+    private Rigidbody rbEnemy;
+    private Animator animaEnemy;
+
+    //private bool isAttack = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        rbEnemy = GetComponent<Rigidbody>();
+        //animaEnemy = gameObject.transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        lookAtLerp(player);
-        MoveEnemy();
+        //animaEnemy.SetBool("isAttack", isAttack);
     }
 
-    private void lookAtLerp(GameObject lookObject)
+    private void FixedUpdate()
     {
-        Vector3 direction = lookObject.transform.position - transform.position;
-        Quaternion newQuaternion = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, newQuaternion, 5f * Time.deltaTime);
+        Vector3 playerDirection = GetPlayerDirection();
+        rbEnemy.rotation = Quaternion.LookRotation(new Vector3(playerDirection.x, 0, playerDirection.z));
+        rbEnemy.AddForce(playerDirection.normalized * speedEnemy);
 
-    }
+    }  
+ 
 
-    private void MoveEnemy()
+
+    private Vector3 GetPlayerDirection()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        if (direction.magnitude > 2)
-        {
-            transform.position += SpeedEnemy * direction.normalized * Time.deltaTime;
-
-        }
+        return player.transform.position - transform.position;
+   
 
     }
+
+    
+    
 }

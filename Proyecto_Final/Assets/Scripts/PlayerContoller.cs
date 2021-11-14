@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerContoller : MonoBehaviour
 {
     [SerializeField] float LifePlayer = 3f;
-    [SerializeField] float SpeedPlayer = 3F;
+    [SerializeField] float SpeedPlayer = 4F;
     float CameraAxis = 180f;
     [SerializeField] Animator animaPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        animaPlayer.SetBool("IsRun", false);
+        animaPlayer.SetBool("isRun", false);
     }
 
     // Update is called once per frame
@@ -33,17 +33,19 @@ public class PlayerContoller : MonoBehaviour
 
     private void Move()
     {
-        float ejehorizontal = Input.GetAxisRaw("Horizontal");
+        float ejeHorizontal = Input.GetAxisRaw("Horizontal");
         float ejeVertical = Input.GetAxisRaw("Vertical");
 
-        if (ejehorizontal != 0 || ejeVertical != 0)
+        if (ejeHorizontal != 0 || ejeVertical != 0)
         {
-            animaPlayer.SetBool("IsRun", true);
-            transform.Translate(SpeedPlayer * Time.deltaTime * new Vector3(ejehorizontal, 0, ejeVertical));
+            animaPlayer.SetBool("isRun", true);
+            Vector3 direction = new Vector3(ejeHorizontal, 0, ejeVertical);
+            transform.Translate(SpeedPlayer * Time.deltaTime * direction);
         }
+
         else
         {
-            animaPlayer.SetBool("IsRun", false);
+            animaPlayer.SetBool("isRun", false);
         }
 
     }
