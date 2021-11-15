@@ -12,27 +12,36 @@ public class EnemyControl : MonoBehaviour
     private Rigidbody rbEnemy;
     private Animator animaEnemy;
 
-    //private bool isAttack = false;
+    //private bool isWalk = false;
+    private bool isAttack = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         rbEnemy = GetComponent<Rigidbody>();
-        //animaEnemy = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        animaEnemy = gameObject.transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //animaEnemy.SetBool("isAttack", isAttack);
+        animaEnemy.SetBool("isAttack", isAttack);
     }
 
     private void FixedUpdate()
     {
         Vector3 playerDirection = GetPlayerDirection();
-        rbEnemy.rotation = Quaternion.LookRotation(new Vector3(playerDirection.x, 0, playerDirection.z));
-        rbEnemy.AddForce(playerDirection.normalized * speedEnemy);
+        if (playerDirection.magnitude > attackRange)
+        {
+            isAttack = false;
+            rbEnemy.rotation = Quaternion.LookRotation(new Vector3(playerDirection.x, 0, playerDirection.z));
+            rbEnemy.AddForce(playerDirection.normalized * speedEnemy,ForceMode.Impulse);
+        }
+        else 
+        {
+            isAttack = true;
+        }
 
     }  
  
@@ -41,7 +50,6 @@ public class EnemyControl : MonoBehaviour
     private Vector3 GetPlayerDirection()
     {
         return player.transform.position - transform.position;
-   
 
     }
 

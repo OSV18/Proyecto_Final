@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerContoller.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
+    <Compile Include="Assets\Scripts\DayControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
