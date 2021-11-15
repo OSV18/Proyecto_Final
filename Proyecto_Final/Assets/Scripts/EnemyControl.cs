@@ -55,9 +55,7 @@ public class EnemyControl : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        {
-        
-        }
+
     }
 
 
