@@ -9,10 +9,14 @@ public class PlayerContoller : MonoBehaviour
     float CameraAxis = 180f;
     [SerializeField] Animator animaPlayer;
 
+    private Rigidbody rbPlayer;
+
+
     // Start is called before the first frame update
     void Start()
     {
         animaPlayer.SetBool("isRun", false);
+        animaPlayer.SetBool("isFire", false);
     }
 
     // Update is called once per frame
@@ -20,6 +24,17 @@ public class PlayerContoller : MonoBehaviour
     {
         RotatePlayer();
         Move();
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            animaPlayer.SetBool("isAttack", true);
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            animaPlayer.SetBool("isAttack", false);
+        }
+            
+
 
     }
 
@@ -33,8 +48,8 @@ public class PlayerContoller : MonoBehaviour
 
     private void Move()
     {
-        float ejeHorizontal = Input.GetAxisRaw("Horizontal");
-        float ejeVertical = Input.GetAxisRaw("Vertical");
+        float ejeHorizontal = Input.GetAxis("Horizontal");
+        float ejeVertical = Input.GetAxis("Vertical");
 
         if (ejeHorizontal != 0 || ejeVertical != 0)
         {

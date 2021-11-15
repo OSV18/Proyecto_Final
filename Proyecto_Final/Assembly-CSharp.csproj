@@ -53,9 +53,13 @@
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DayControl.cs" />
     <Compile Include="Assets\Scripts\PlayerContoller.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
-    <Compile Include="Assets\Scripts\DayControl.cs" />
+    <Compile Include="Assets\Scripts\SpawnerControl.cs" />
+    <Compile Include="Assets\Scripts\Itencontroller.cs" />
+    <Compile Include="Assets\Scripts\GunControl.cs" />
+    <Compile Include="Assets\Scripts\SpaBulletControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

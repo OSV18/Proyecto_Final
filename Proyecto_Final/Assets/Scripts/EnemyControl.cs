@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    [SerializeField] float speedEnemy = 4f;
+    [SerializeField] float speedEnemy = 50f;
     [SerializeField] float attackRange = 1f;
 
     
@@ -12,7 +12,7 @@ public class EnemyControl : MonoBehaviour
     private Rigidbody rbEnemy;
     private Animator animaEnemy;
 
-    //private bool isWalk = false;
+    
     private bool isAttack = false;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class EnemyControl : MonoBehaviour
     {
         player = GameObject.Find("Player");
         rbEnemy = GetComponent<Rigidbody>();
-        animaEnemy = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        animaEnemy = gameObject.transform.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class EnemyControl : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 playerDirection = GetPlayerDirection();
-        if (playerDirection.magnitude > attackRange)
+        if(playerDirection.magnitude > attackRange)
         {
             isAttack = false;
             rbEnemy.rotation = Quaternion.LookRotation(new Vector3(playerDirection.x, 0, playerDirection.z));
@@ -52,7 +52,13 @@ public class EnemyControl : MonoBehaviour
         return player.transform.position - transform.position;
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        {
+        
+        }
+    }
 
-    
-    
+
 }
