@@ -28,6 +28,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
+
     /*private void ActiveOne()
     {
         int cannonInde = Random.Range(0, cannons.Length);
@@ -39,5 +40,6 @@ public class NewBehaviourScript : MonoBehaviour
     /*private CannonController GetCannonComponent(GameObject.target)
     {
         return cannon.GetComponent
-    }
+    }*/
+    
 }
