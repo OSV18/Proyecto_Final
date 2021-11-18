@@ -54,15 +54,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DayControl.cs" />
-    <Compile Include="Assets\Scripts\CannosController.cs" />
-    <Compile Include="Assets\Scripts\SpaBulletControl.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\TorretaController.cs" />
     <Compile Include="Assets\Scripts\PlayerContoller.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\SpawnerControl.cs" />
-    <Compile Include="Assets\Scripts\GunControl.cs" />
     <Compile Include="Assets\Scripts\Itencontroller.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\TorretaController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\Turret\Shaders\AlphaTest_Complete.shader" />

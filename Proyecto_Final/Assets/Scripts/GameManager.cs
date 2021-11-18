@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public static int score;
+    private int scorInstanciado;
 
     private void Awake()
     {
@@ -32,4 +33,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    public void addScore()
+    {
+        instance.scorInstanciado += 1;
+    }
+
+    public static int GetScore()
+    {
+        return instance.scorInstanciado;
+    }
+
 }

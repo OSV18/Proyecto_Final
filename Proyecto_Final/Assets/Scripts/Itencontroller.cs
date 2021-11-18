@@ -25,8 +25,14 @@ public class Itencontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            GameManager.instance.addScore();
             Destroy(collision.gameObject);
+            Debug.Log(GameManager.GetScore());
 
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
         }
     }
 }

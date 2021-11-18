@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerContoller : MonoBehaviour
 {
-    [SerializeField] float LifePlayer = 3f;
+    //[SerializeField] float LifePlayer = 3f;
     [SerializeField] float SpeedPlayer = 4F;
     float CameraAxis = 180f;
     [SerializeField] Animator animaPlayer;
@@ -65,13 +65,13 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
         }
-    }
+    }*/
 
 }
 

@@ -6,17 +6,18 @@ public class TorretaController : MonoBehaviour
 {
     [SerializeField] private float distanceRay = 10f;
     [SerializeField] private GameObject shootOrigen;
-    [SerializeField] private int shootCooldown;
-    [SerializeField] private float timeSoot;
+    [SerializeField] private int shootCooldown = 2;
+    [SerializeField] private float timeSoot = 2;
     [SerializeField] private GameObject bulletPrefab;
-    
+    [SerializeField] Vector3 turnTorett = new Vector3(0, 0, 1f);
+
     private bool torretShoot = true;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Rigidbody>().angularVelocity = turnTorett;
     }
 
     // Update is called once per frame
@@ -26,10 +27,12 @@ public class TorretaController : MonoBehaviour
         {
             RaycastTorreta();
         }
+
         else
         {
             timeSoot += Time.deltaTime;
         }
+
         if (timeSoot > shootCooldown)
         {
             torretShoot = true;
@@ -63,4 +66,6 @@ public class TorretaController : MonoBehaviour
             Gizmos.DrawRay(shootOrigen.transform.position, shootOrigen.transform.TransformDirection(Vector3.forward) * distanceRay);
         }
     }
+
+    
 }
