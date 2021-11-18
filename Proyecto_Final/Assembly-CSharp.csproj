@@ -60,6 +60,13 @@
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\SpawnerControl.cs" />
     <Compile Include="Assets\Scripts\Itencontroller.cs" />
+    <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
+    <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
+    <Compile Include="Assets\Script\CameraControl.cs" />
+    <Compile Include="Assets\Script\PlayerController.cs" />
+    <Compile Include="Assets\Script\BollController.cs" />
+    <Compile Include="Assets\Script\Spawncontrol.cs" />
+    <Compile Include="Assets\Script\GunControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\Turret\Shaders\AlphaTest_Complete.shader" />
