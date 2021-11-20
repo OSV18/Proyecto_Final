@@ -11,6 +11,7 @@ public class EnemyControl : MonoBehaviour
 
     [SerializeField] Transform[] waypoints;
     [SerializeField] float minimDistan;
+    [SerializeField] float rotationSpeed;
     private int currenIndex = 0;
 
     private GameObject player;
@@ -92,10 +93,13 @@ public class EnemyControl : MonoBehaviour
     {
         Vector3 deltavector = waypoints[currenIndex].position - transform.position;
         Vector3 direction = deltavector.normalized;
-        transform.position += direction * speedEnemy * Time.deltaTime;
+
+        transform.forward = Vector3.Lerp(transform.forward, direction, rotationSpeed * Time.deltaTime);
+        transform.position += transform.forward * speedEnemy * Time.deltaTime;
 
         float distance = deltavector.magnitude;
-        
+
+        //transform.LookAt(waypoints[currenIndex].position);
 
         if (distance < minimDistan)
         {

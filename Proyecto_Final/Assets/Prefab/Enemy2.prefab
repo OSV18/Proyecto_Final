@@ -946,7 +946,6 @@ GameObject:
   - component: {fileID: 9001711440504217892}
   - component: {fileID: 1900604039994886403}
   - component: {fileID: 1900604039994886402}
-  - component: {fileID: 1900604039994886401}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -961,7 +960,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2611483902552882765}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.1720123, y: -1.0849177, z: 22.141388}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
@@ -1032,22 +1031,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6118055, y: 1.7865688, z: 0.37117854}
   m_Center: {x: -0.014489492, y: 0.8786492, z: -0.029186673}
---- !u!114 &1900604039994886401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611483902552882765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d589da61996734fbc216e881abeb28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedEnemy: 4
-  attackRange: 1
-  distanceRay: 10
-  visionPoint: {fileID: 7941112673614703622}
 --- !u!1 &2738713551211524959
 GameObject:
   m_ObjectHideFlags: 0

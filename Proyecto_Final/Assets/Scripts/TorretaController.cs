@@ -12,17 +12,30 @@ public class TorretaController : MonoBehaviour
     [SerializeField] Vector3 turnTorett = new Vector3(0, 0, 1f);
 
     private bool torretShoot = true;
-
+    private Transform target;
+    [SerializeField] float range = 15f;
+    [SerializeField] Transform ponitRotate;
+    [SerializeField] string enemyTap = "Enemy";
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().angularVelocity = turnTorett;
+        //GetComponent<Rigidbody>().angularVelocity = turnTorett;
+
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (target == null)
+            return;
+
+            RotationTorret();
+        
+
         if (torretShoot)
         {
             RaycastTorreta();
@@ -67,5 +80,43 @@ public class TorretaController : MonoBehaviour
         }
     }
 
-    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    private void RotationTorret()
+    {
+        Vector3 direction = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 rotation = lookRotation.eulerAngles;
+        ponitRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+
+    private void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTap);
+        float shortesDistance = Mathf.Infinity;
+        GameObject nearesEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortesDistance)
+            {
+                shortesDistance = distanceToEnemy;
+                nearesEnemy = enemy;   
+            }
+        }
+        if (nearesEnemy != null && shortesDistance <= range)
+        {
+            target = nearesEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
 }
