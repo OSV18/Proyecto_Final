@@ -53,20 +53,20 @@
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Scripts\DayControl.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Script\BollController.cs" />
     <Compile Include="Assets\Scripts\TorretaController.cs" />
     <Compile Include="Assets\Scripts\PlayerContoller.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
+    <Compile Include="Assets\Script\GunControl.cs" />
     <Compile Include="Assets\Scripts\SpawnerControl.cs" />
+    <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Itencontroller.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
-    <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
-    <Compile Include="Assets\Script\CameraControl.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
-    <Compile Include="Assets\Script\BollController.cs" />
     <Compile Include="Assets\Script\Spawncontrol.cs" />
-    <Compile Include="Assets\Script\GunControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\Turret\Shaders\AlphaTest_Complete.shader" />
