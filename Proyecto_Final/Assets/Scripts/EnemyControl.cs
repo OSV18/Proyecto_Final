@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    [SerializeField] float speedEnemy = 50f;
+    [SerializeField] private float speedEnemy = 50f;
     [SerializeField] float attackRange = 1f;
     [SerializeField] private float distanceRay = 10f;
     [SerializeField] private GameObject visionPoint;
+
+    [SerializeField] Transform[] waypoints;
+    [SerializeField] float minimDistan;
+    private int currenIndex = 0;
 
     private GameObject player;
     private Rigidbody rbEnemy;
@@ -28,8 +32,8 @@ public class EnemyControl : MonoBehaviour
     void Update()
     {
         animaEnemy.SetBool("isAttack", isAttack);
-        
 
+        MovementWayp();
 
     }
 
@@ -81,5 +85,40 @@ public class EnemyControl : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * distanceRay);
     }
+
+    private bool goBack = false;
+
+    private void MovementWayp()
+    {
+        Vector3 deltavector = waypoints[currenIndex].position - transform.position;
+        Vector3 direction = deltavector.normalized;
+        transform.position += direction * speedEnemy * Time.deltaTime;
+
+        float distance = deltavector.magnitude;
+        
+
+        if (distance < minimDistan)
+        {
+            if (currenIndex >= waypoints.Length - 1)
+            {
+                goBack = true;
+            }
+            else if (currenIndex <= 0)
+            {
+                goBack = false;
+            }
+
+            if (!goBack)
+            {
+                currenIndex++;
+            }
+            else currenIndex--;
+
+        }
+
+
+    }
+
+
 
 }
