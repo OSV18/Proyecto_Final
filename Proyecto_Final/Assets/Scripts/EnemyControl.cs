@@ -99,7 +99,6 @@ public class EnemyControl : MonoBehaviour
 
         float distance = deltavector.magnitude;
 
-        //transform.LookAt(waypoints[currenIndex].position);
 
         if (distance < minimDistan)
         {

@@ -64,7 +64,7 @@
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Itencontroller.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
-    <Compile Include="Assets\Scripts\EnemyControl2.cs" />
+    <Compile Include="Assets\Scripts\Enemy2Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\Turret\Shaders\AlphaTest_Complete.shader" />

@@ -7,7 +7,7 @@ public class TorretaController : MonoBehaviour
     [SerializeField] private float distanceRay = 10f;
     [SerializeField] private GameObject shootOrigen;
     [SerializeField] private int shootCooldown = 2;
-    [SerializeField] private float timeSoot = 2;
+    [SerializeField] private float timeSoot = 1;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] Vector3 turnTorett = new Vector3(0, 0, 1f);
 
@@ -65,7 +65,7 @@ public class TorretaController : MonoBehaviour
                 torretShoot = false;
                 timeSoot = 0;
                 GameObject b = Instantiate(bulletPrefab, shootOrigen.transform.position, bulletPrefab.transform.rotation);
-                b.GetComponent<Rigidbody>().AddForce(shootOrigen.transform.TransformDirection(Vector3.forward) * 10f, ForceMode.Impulse);
+                b.GetComponent<Rigidbody>().AddForce(shootOrigen.transform.TransformDirection(Vector3.forward) * 20f, ForceMode.Impulse);
             }
         }
 

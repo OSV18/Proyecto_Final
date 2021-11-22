@@ -7,6 +7,7 @@ public class PlayerContoller : MonoBehaviour
     //[SerializeField] float LifePlayer = 3f;
     [SerializeField] float SpeedPlayer = 4F;
     float CameraAxis = 180f;
+    [SerializeField] float speedTun;
     [SerializeField] Animator animaPlayer;
 
     private Rigidbody rbPlayer;
@@ -17,13 +18,21 @@ public class PlayerContoller : MonoBehaviour
     {
         animaPlayer.SetBool("isRun", false);
         animaPlayer.SetBool("isFire", false);
+        rbPlayer = GetComponent<Rigidbody>();
     }
 
+
+    void FixedUpdate()
+    {
+        Move();
+        RotatePlayer();
+        
+    }
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
-        Move();
+        
+        
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -40,10 +49,13 @@ public class PlayerContoller : MonoBehaviour
 
     private void RotatePlayer()
     {
-        CameraAxis += Input.GetAxis("Mouse X");
-        Quaternion Angle = Quaternion.Euler(0, CameraAxis, 0);
-        transform.localRotation = Angle;
-
+        if(Input.GetAxis("Mouse X") != 0)
+        { 
+         
+            CameraAxis += Input.GetAxis("Mouse X");
+            Quaternion Angle = Quaternion.Euler(0, CameraAxis * speedTun, 0);
+            transform.rotation = Angle;
+        }
     }
 
     private void Move()
@@ -54,8 +66,8 @@ public class PlayerContoller : MonoBehaviour
         if (ejeHorizontal != 0 || ejeVertical != 0)
         {
             animaPlayer.SetBool("isRun", true);
-            Vector3 direction = new Vector3(ejeHorizontal, 0, ejeVertical);
-            transform.Translate(SpeedPlayer * Time.deltaTime * direction);
+            rbPlayer.AddRelativeForce(Vector3.forward * SpeedPlayer * ejeVertical, ForceMode.Acceleration);
+            rbPlayer.AddRelativeForce(Vector3.right * SpeedPlayer * ejeHorizontal, ForceMode.Acceleration);
         }
 
         else
