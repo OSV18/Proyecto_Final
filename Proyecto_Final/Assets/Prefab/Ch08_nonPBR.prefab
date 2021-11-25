@@ -2924,7 +2924,8 @@ GameObject:
   - component: {fileID: 919132147726158720}
   - component: {fileID: 919132147726158721}
   - component: {fileID: 919132147726158719}
-  - component: {fileID: 919132147726158722}
+  - component: {fileID: 4727043828805893313}
+  - component: {fileID: 7934840526454984939}
   - component: {fileID: 919132147726158723}
   m_Layer: 0
   m_Name: Ch08_nonPBR
@@ -3004,7 +3005,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &919132147726158722
+--- !u!114 &4727043828805893313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3013,12 +3014,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 9087759407752324645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be76268b24da164f99fcb0db7543349, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b7d94355f224de49bc30d8cf83d6f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedPlayer: 30
-  speedTun: 15
+  SpeedPlayer: 4
+  speedTun: 10
   animaPlayer: {fileID: 919132147726158719}
+--- !u!114 &7934840526454984939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087759407752324645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8518a5088b96d664b92e7ea34c400ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeBar: {fileID: 0}
+  life: 100
 --- !u!114 &919132147726158723
 MonoBehaviour:
   m_ObjectHideFlags: 0

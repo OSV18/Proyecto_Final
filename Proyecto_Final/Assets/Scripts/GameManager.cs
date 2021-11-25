@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public static int score;
     private int scorInstanciado;
-
+    
+        
     public enum typesConsumables { Firstaid, Canned }
     private void Awake()
     {

@@ -9,10 +9,11 @@ public class HUDCOntroller : MonoBehaviour
     [SerializeField] private Text textCannet;
     [SerializeField] private InventoryManagers mgInventory;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+     
     }
 
     // Update is called once per frame
@@ -26,4 +27,6 @@ public class HUDCOntroller : MonoBehaviour
         int[] consumCount = mgInventory.GetConsumablesQuantity();
         textFirst.text ="x" + consumCount[0];
     }
+
+  
 }

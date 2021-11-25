@@ -9,14 +9,14 @@ public class DayControl : MonoBehaviour
     [SerializeField] float min;
     [SerializeField] float timeSpeed = 1f;
     [SerializeField] float grados;
-    // Start is called before the first frame update
+
     void Start()
     {
      
-        //GetComponent<Rigidbody>().angularVelocity = cicleDay;
+      
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         min += timeSpeed * Time.deltaTime;

@@ -11,7 +11,7 @@ public class Zombie : MonoBehaviour
     protected Rigidbody rbZombie;
     private Animator animaZombie;
 
-    private bool isAttacck = false;
+    private bool isAttack = false;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Zombie : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!isAttacck)
+        if (!isAttack)
         {
             FindEnemy();
             Move();
@@ -54,21 +54,34 @@ public class Zombie : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(origen.position, origen.TransformDirection(Vector3.forward), out hit, distanceRay))
         {
-            if (hit.transform.CompareTag("Player"))
+            if (hit.transform.CompareTag ("Player"))
             {
-                isAttacck = true;
+                isAttack = true;
                 rbZombie.velocity = Vector3.zero;
-                animaZombie.SetBool("isAttacK", isAttacck);
+                animaZombie.SetBool("isAttack", isAttack);
             }
+            else
+            {
+                isAttack = false;
+            }
+                  
         }
-
     }
 
-    protected void Drawray(Transform origen)
+    protected void DrawrRay(Transform origen)
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.green;
         Vector3 direction = origen.TransformDirection(Vector3.forward) * distanceRay;
-        //Gizmos.DrawRay(transform.position);
+        Gizmos.DrawRay(origen.position, direction);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!isAttack)
+        {
+            DrawrRay(originOne.transform);
+        }
+          
     }
 }
 

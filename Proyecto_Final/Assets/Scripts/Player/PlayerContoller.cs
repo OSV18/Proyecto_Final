@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerContoller : MonoBehaviour
 {
-    //[SerializeField] float LifePlayer = 3f;
     [SerializeField] float SpeedPlayer = 4F;
     float CameraAxis = 180f;
     [SerializeField] float speedTun;
