@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static int score;
     private int scorInstanciado;
 
+    public enum typesConsumables { Firstaid, Canned }
     private void Awake()
     {
         if(instance == null)

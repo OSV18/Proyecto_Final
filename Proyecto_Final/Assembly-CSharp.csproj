@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Scripts\DayControl.cs" />
+    <Compile Include="Assets\Scripts\Enemy2Controller.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\TorretaController.cs" />
     <Compile Include="Assets\Scripts\PlayerContoller.cs" />
@@ -64,7 +65,12 @@
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Itencontroller.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
-    <Compile Include="Assets\Scripts\Enemy2Controller.cs" />
+    <Compile Include="Assets\Scripts\HUDCOntroller.cs" />
+    <Compile Include="Assets\Scripts\InventoryManagers.cs" />
+    <Compile Include="Assets\Scripts\ConsumablesControl.cs" />
+    <Compile Include="Assets\Scripts\Zombie\Zombie.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieBoss.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\Turret\Shaders\AlphaTest_Complete.shader" />

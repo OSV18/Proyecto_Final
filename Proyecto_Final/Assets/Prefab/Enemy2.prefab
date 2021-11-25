@@ -946,6 +946,7 @@ GameObject:
   - component: {fileID: 9001711440504217892}
   - component: {fileID: 1900604039994886403}
   - component: {fileID: 5566650170521925881}
+  - component: {fileID: 502640152251492664}
   - component: {fileID: 1900604039994886402}
   m_Layer: 0
   m_Name: Enemy2
@@ -1035,6 +1036,18 @@ MonoBehaviour:
   attackRange: 1
   distanceRay: 10
   visionPoint: {fileID: 0}
+--- !u!114 &502640152251492664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611483902552882765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1d67c554f829347a608deb7d53f8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1900604039994886402
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] float speedTun;
     [SerializeField] Animator animaPlayer;
 
+    private InventoryManagers mgInventory;
     private Rigidbody rbPlayer;
 
 
@@ -17,8 +18,9 @@ public class PlayerContoller : MonoBehaviour
     void Start()
     {
         animaPlayer.SetBool("isRun", false);
-        animaPlayer.SetBool("isFire", false);
+        //animaPlayer.SetBool("isFire", false);
         rbPlayer = GetComponent<Rigidbody>();
+        mgInventory = GetComponent<InventoryManagers>();
     }
 
 
@@ -77,13 +79,19 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Consumables"))
         {
-            Destroy(collision.gameObject);
+            //Debug.Log("UN ITEM");
+            GameObject consumable = other.gameObject;
+            consumable.SetActive(false);
+            mgInventory.AddInventory(consumable.name, consumable);
+            mgInventory.SeeInventory();
+            mgInventory.CountConsum(consumable);
         }
-    }*/
+
+    }
 
 }
 
