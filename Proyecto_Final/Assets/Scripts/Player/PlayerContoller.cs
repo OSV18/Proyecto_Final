@@ -8,6 +8,8 @@ public class PlayerContoller : MonoBehaviour
     float CameraAxis = 180f;
     [SerializeField] float speedTun;
     [SerializeField] Animator animaPlayer;
+    [SerializeField] float jumpForce;
+    [SerializeField] LayerMask groundLayer;
 
     private InventoryManagers mgInventory;
     private Rigidbody rbPlayer;
@@ -32,6 +34,14 @@ public class PlayerContoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
+            {
+                Jump();
+            }
+            
+        }
         
         
 
@@ -89,8 +99,42 @@ public class PlayerContoller : MonoBehaviour
             mgInventory.SeeInventory();
             mgInventory.CountConsum(consumable);
         }
+        
+        if (other.gameObject.layer == 23)
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 23)
+        {
+            isGrounded = false;
+        }
+    }
+
+    private bool isGrounded = true;
+
+    private void Jump()
+    {
+        Debug.Log("salta");
+        rbPlayer.AddForce(0, 1 * jumpForce, 0);
 
     }
 
+
+    /*private bool IsGrounded() //SAlto con Raycast//
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, 0.5f, groundLayer))
+        {
+            return true;
+        }
+        else return false;
+
+    }*/
+
+ 
 }
+
 

@@ -6,9 +6,10 @@ public class EnemyControl : MonoBehaviour
 {
     [SerializeField] private float speedEnemy = 50f;
     [SerializeField] float attackRange = 1f;
-    [SerializeField] private float distanceRay = 10f;
-    [SerializeField] private GameObject visionPoint;
+    //[SerializeField] private float distanceRay = 10f;
+    //[SerializeField] private GameObject visionPoint;
 
+    [SerializeField] float rangeOfView;
     [SerializeField] Transform[] waypoints;
     [SerializeField] float minimDistan;
     [SerializeField] float rotationSpeed;
@@ -34,14 +35,28 @@ public class EnemyControl : MonoBehaviour
     {
         animaEnemy.SetBool("isAttack", isAttack);
 
-        MovementWayp();
-
+        
     }
 
     private void FixedUpdate()
     {
-        RaycastEnemy();
+        if (Vector3.Distance(transform.position, player.transform.position) <= rangeOfView)
+        {
+            iSeePlayer = true;
+        }
+        else
+        {
+            iSeePlayer = false;
+        }
 
+        if (iSeePlayer)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            MovementWayp();
+        }
     }  
  
 
@@ -57,7 +72,7 @@ public class EnemyControl : MonoBehaviour
 
     }
 
-    private void RaycastEnemy()
+    /*private void RaycastEnemy()
     {
         RaycastHit hit;
         if(Physics.Raycast(visionPoint.transform.position, visionPoint.transform.TransformDirection(Vector3.forward), out hit, distanceRay))
@@ -79,12 +94,37 @@ public class EnemyControl : MonoBehaviour
             }    
         }
         
-    }
+    }*/
+
+    private bool iSeePlayer = false;
+    private void ChasePlayer()
+    {
+        Vector3 playerDirection = GetPlayerDirection();
+        if (playerDirection.magnitude > attackRange)
+        {
+            isAttack = false;
+            rbEnemy.AddForce(playerDirection.normalized * speedEnemy, ForceMode.Impulse);
+            rbEnemy.rotation = Quaternion.LookRotation(new Vector3(playerDirection.x, 0, playerDirection.z));
+        }
+        else
+        {
+            isAttack = true;
+     
+        }
+}
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * distanceRay);
+        if (iSeePlayer)
+        {
+            Gizmos.color = Color.red;
+        }
+        else
+        {
+            Gizmos.color = Color.blue;
+        }
+
+        Gizmos.DrawWireSphere(transform.position, rangeOfView);
     }
 
     private bool goBack = false;
@@ -93,9 +133,9 @@ public class EnemyControl : MonoBehaviour
     {
         Vector3 deltavector = waypoints[currenIndex].position - transform.position;
         Vector3 direction = deltavector.normalized;
-
-        transform.forward = Vector3.Lerp(transform.forward, direction, rotationSpeed * Time.deltaTime);
-        transform.position += transform.forward * speedEnemy * Time.deltaTime;
+        rbEnemy.AddForce(direction.normalized * speedEnemy, ForceMode.Impulse);
+        rbEnemy.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        
 
         float distance = deltavector.magnitude;
 
@@ -121,6 +161,7 @@ public class EnemyControl : MonoBehaviour
 
 
     }
+
 
 
 

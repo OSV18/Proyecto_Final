@@ -29,6 +29,37 @@ Transform:
   m_Children:
   - {fileID: 1181140135}
   m_Father: {fileID: 6539299615982924172}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &363274742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363274743}
+  m_Layer: 0
+  m_Name: CamPointE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363274743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363274742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 1.935, z: -0.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1676467344}
+  m_Father: {fileID: 6539299615982924172}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1181140132
@@ -113,6 +144,89 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181140132}
+  m_Enabled: 1
+--- !u!1 &1676467341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676467344}
+  - component: {fileID: 1676467343}
+  - component: {fileID: 1676467342}
+  m_Layer: 0
+  m_Name: Camera 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1676467344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676467341}
+  m_LocalRotation: {x: 0.18521872, y: 0.0043353583, z: -0.016325003, w: 0.9825522}
+  m_LocalPosition: {x: -0.030000973, y: 1.1799998, z: -3.2099996}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 363274743}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 21.353, y: 0.152, z: -1.875}
+--- !u!20 &1676467343
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676467341}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 2
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 21.6932
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 57.899998
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &1676467342
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676467341}
   m_Enabled: 1
 --- !u!1 &6539299615477506260
 GameObject:
@@ -776,7 +890,7 @@ GameObject:
   - component: {fileID: 6539299615982924175}
   - component: {fileID: 6539299615982924173}
   - component: {fileID: 6539299615982924174}
-  - component: {fileID: 5379554871166998488}
+  - component: {fileID: 961929134}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -798,6 +912,7 @@ Transform:
   - {fileID: 6539299615598117857}
   - {fileID: 6539299617191031589}
   - {fileID: 7090793896351455108}
+  - {fileID: 363274743}
   - {fileID: 62515011}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -812,11 +927,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 40
   m_Drag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &6539299615982924173
 BoxCollider:
@@ -829,8 +944,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6659546, y: 1.9918885, z: 1}
-  m_Center: {x: -0.02015686, y: 1.0087163, z: 0}
+  m_Size: {x: 0.6659546, y: 1.959341, z: 1}
+  m_Center: {x: -0.02015686, y: 1.0249901, z: -2.3849256e-11}
 --- !u!95 &6539299615982924174
 Animator:
   serializedVersion: 3
@@ -850,7 +965,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5379554871166998488
+--- !u!114 &961929134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -859,12 +974,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6539299615982924171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1d67c554f829347a608deb7d53f8a5, type: 3}
+  m_Script: {fileID: 11500000, guid: c0d589da61996734fbc216e881abeb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedEnemy: 50
-  originOne: {fileID: 7090793896351455111}
-  distanceRay: 10
+  speedEnemy: 80
+  attackRange: 3
+  rangeOfView: 10
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minimDistan: 1
+  rotationSpeed: -5
 --- !u!1 &6539299616011826498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +2046,7 @@ GameObject:
   - component: {fileID: 7980309622315816646}
   m_Layer: 0
   m_Name: RightHand
-  m_TagString: Untagged
+  m_TagString: Hand Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1953,10 +2080,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.12392469
+  m_Radius: 0.18385105
   m_Height: 0.42117107
   m_Direction: 0
-  m_Center: {x: 0.14640181, y: 0.0000000016988868, z: -0.012997642}
+  m_Center: {x: 0.14640182, y: 0, z: -0.0129976235}
 --- !u!1 &6539299617223395885
 GameObject:
   m_ObjectHideFlags: 0

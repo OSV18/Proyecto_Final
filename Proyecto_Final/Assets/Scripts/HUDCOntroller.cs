@@ -26,6 +26,7 @@ public class HUDCOntroller : MonoBehaviour
     {
         int[] consumCount = mgInventory.GetConsumablesQuantity();
         textFirst.text ="x" + consumCount[0];
+        textCannet.text = "x" + consumCount[1];
     }
 
   

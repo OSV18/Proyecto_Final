@@ -14,4 +14,13 @@ public class LifePlayer : MonoBehaviour
         life = Mathf.Clamp(life, 0, 100);
         lifeBar.fillAmount = life / 100;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("golpeado por enemy");
+            life -= 5f;
+        }
+    }
 }
