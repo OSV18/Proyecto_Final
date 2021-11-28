@@ -10,6 +10,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] Animator animaPlayer;
     [SerializeField] float jumpForce;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] private float life = 100;
 
     private InventoryManagers mgInventory;
     private Rigidbody rbPlayer;
@@ -88,6 +89,7 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
+    private bool isGrounded = true;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Consumables"))
@@ -114,7 +116,7 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    private bool isGrounded = true;
+    
 
     private void Jump()
     {
@@ -134,7 +136,17 @@ public class PlayerContoller : MonoBehaviour
 
     }*/
 
- 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.contacts[0].otherCollider.gameObject.CompareTag("Hand Enemy"))
+        {
+            Debug.Log("golpeado por enemy");
+            life -= 5f;
+        }
+    }
+
+
 }
 
 

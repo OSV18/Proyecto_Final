@@ -25,7 +25,7 @@ public class Itencontroller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            GameManager.instance.addScore();
+            GameManager.Instance.addScore();
             Destroy(collision.gameObject);
             Debug.Log(GameManager.GetScore());
 

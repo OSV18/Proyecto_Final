@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
+    public static float life;
     public static int score;
     private int scorInstanciado;
-    
-        
-    public enum typesConsumables { Firstaid, Canned }
+
+    public enum typesConsumables { Firstaid, Canned, Water }
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-            score = 0;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if(Instance != null)
         {
             Destroy(gameObject);
+            return;           
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+       
+        
+           
+        
     }
 
     // Start is called before the first frame update
@@ -35,16 +37,24 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    public void Setlife(float newLife)
+    {
+        life = newLife;
+    }
+
+    public float GetLife()
+    {
+        return life;
+    }
+
     public void addScore()
     {
-        instance.scorInstanciado += 1;
+        Instance.scorInstanciado += 1;
     }
 
     public static int GetScore()
     {
-        return instance.scorInstanciado;
+        return Instance.scorInstanciado;
     }
-
-  
 
 }

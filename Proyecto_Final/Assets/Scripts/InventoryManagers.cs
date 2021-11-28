@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManagers : MonoBehaviour
 {
-    [SerializeField] private int[] consumablesQuantity = { 0, 0};
+    [SerializeField] private int[] consumablesQuantity = { 0, 0, 0};
     Dictionary<string, GameObject> inventory;
 
     // Start is called before the first frame update
@@ -30,6 +30,9 @@ public class InventoryManagers : MonoBehaviour
                 break;
             case GameManager.typesConsumables.Canned:
                 consumablesQuantity[1]++;
+                break;
+            case GameManager.typesConsumables.Water:
+                consumablesQuantity[2]++;
                 break;
             default:
                 Debug.Log("NO SE PUEDE CONTAR");
