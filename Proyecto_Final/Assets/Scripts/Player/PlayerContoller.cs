@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerContoller : MonoBehaviour
     private InventoryManagers mgInventory;
     private Rigidbody rbPlayer;
 
+    //EVENT
+    public static event Action onDeath;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,7 @@ public class PlayerContoller : MonoBehaviour
         //animaPlayer.SetBool("isFire", false);
         rbPlayer = GetComponent<Rigidbody>();
         mgInventory = GetComponent<InventoryManagers>();
+        
     }
 
 
@@ -143,6 +148,11 @@ public class PlayerContoller : MonoBehaviour
         {
             Debug.Log("golpeado por enemy");
             life -= 5f;
+            if (life == 0)
+            {
+                //onDeath();
+                onDeath?.Invoke();
+            }
         }
     }
 

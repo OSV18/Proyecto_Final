@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static int score;
     private int scorInstanciado;
 
+
     public enum typesConsumables { Firstaid, Canned, Water }
     private void Awake()
     {
@@ -29,7 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //payerScript =  GameManager.player
+       // PlayerContoller.onDeath += GameOver;
     }
 
     // Update is called once per frame
@@ -57,4 +59,11 @@ public class GameManager : MonoBehaviour
         return Instance.scorInstanciado;
     }
 
+    private void GameOver()
+    {
+        if (life == 0)
+        {
+            Debug.Log("Game Over");
+        }
+    }
 }

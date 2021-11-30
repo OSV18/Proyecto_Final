@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDCOntroller : MonoBehaviour
 {
@@ -9,14 +10,19 @@ public class HUDCOntroller : MonoBehaviour
     [SerializeField] private Text textCannet;
     [SerializeField] private Text textWater;
 
+    [SerializeField] private TextMeshProUGUI texLive;
+
     [SerializeField] private InventoryManagers mgInventory;
     [SerializeField] private Image lifeBar;
     private float life;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-     
+        //GameObject.Find("Player").GetComponent<PlayerContoller>().onDeath += OnDeadHandler;
+        //PlayerContoller.onDeath += OnDeadHandler;
     }
 
     // Update is called once per frame
@@ -41,5 +47,11 @@ public class HUDCOntroller : MonoBehaviour
         life = Mathf.Clamp(life, 0, 100);
         lifeBar.fillAmount = life / 100;
     }
-  
+
+    private void OnDeadHandler()
+    {
+        
+    }
+
+
 }
