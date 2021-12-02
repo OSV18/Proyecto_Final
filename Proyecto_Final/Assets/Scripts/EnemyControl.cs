@@ -15,6 +15,7 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] float rotationSpeed;
     private int currenIndex = 0;
 
+    private bool goBack = false;
     private GameObject player;
     private Rigidbody rbEnemy;
     private Animator animaEnemy;
@@ -127,7 +128,7 @@ public class EnemyControl : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rangeOfView);
     }
 
-    private bool goBack = false;
+
 
     private void MovementWayp()
     {

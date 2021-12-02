@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    [SerializeField] protected float speedEnemy = 50f;
+
     [SerializeField] private GameObject originOne;
-    [SerializeField] private float distanceRay = 10;
+    [SerializeField] protected ZombieData myData;
 
     protected Rigidbody rbZombie;
     private Animator animaZombie;
@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour
         animaZombie = gameObject.transform.GetComponent<Animator>();
 
     }
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (!isAttack)
         {
@@ -38,9 +38,9 @@ public class Zombie : MonoBehaviour
 
     public virtual void Move()
     {
-        Vector3 direction = Vector3.left;
+        Vector3 direction = Vector3.forward;
         rbZombie.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        rbZombie.AddForce(direction * speedEnemy, ForceMode.Impulse);
+        rbZombie.AddForce(direction * myData.speed, ForceMode.Impulse);
 
     }
 
@@ -52,7 +52,7 @@ public class Zombie : MonoBehaviour
     protected void BroacastRaycast(Transform origen)
     {
         RaycastHit hit;
-        if (Physics.Raycast(origen.position, origen.TransformDirection(Vector3.forward), out hit, distanceRay))
+        if (Physics.Raycast(origen.position, origen.TransformDirection(Vector3.forward), out hit, myData.distanceRay))
         {
             if (hit.transform.CompareTag ("Player"))
             {
@@ -71,11 +71,11 @@ public class Zombie : MonoBehaviour
     protected void DrawrRay(Transform origen)
     {
         Gizmos.color = Color.green;
-        Vector3 direction = origen.TransformDirection(Vector3.forward) * distanceRay;
+        Vector3 direction = origen.TransformDirection(Vector3.forward) * myData.distanceRay;
         Gizmos.DrawRay(origen.position, direction);
     }
 
-    private void OnDrawGizmos()
+    public virtual void OnDrawGizmos()
     {
         if (!isAttack)
         {
@@ -83,5 +83,6 @@ public class Zombie : MonoBehaviour
         }
           
     }
+
 }
 
