@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] Animator animaPlayer;
     [SerializeField] float jumpForce;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] private Image lifeBar;
+    [SerializeField] private GameObject myObjetct;
     [SerializeField] private float life = 100;
 
     private InventoryManagers mgInventory;
@@ -18,6 +21,7 @@ public class PlayerContoller : MonoBehaviour
 
     //EVENT
     public static event Action onDeath;
+    public static event Action<int> onScore;
 
 
     // Start is called before the first frame update
@@ -59,7 +63,10 @@ public class PlayerContoller : MonoBehaviour
         {
             animaPlayer.SetBool("isAttack", false);
         }
-            
+
+        life = Mathf.Clamp(life, 0, 100);
+        lifeBar.fillAmount = life / 100;
+
 
 
     }
@@ -99,7 +106,6 @@ public class PlayerContoller : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Consumables"))
         {
-            //Debug.Log("UN ITEM");
             GameObject consumable = other.gameObject;
             consumable.SetActive(false);
             mgInventory.AddInventory(consumable.name, consumable);
@@ -144,16 +150,26 @@ public class PlayerContoller : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.contacts[0].otherCollider.gameObject.CompareTag("Hand Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("golpeado por enemy");
+            Debug.Log("Golpeado por Enemy");
             life -= 5f;
             if (life == 0)
             {
-                //onDeath();
                 onDeath?.Invoke();
+                myObjetct.SetActive(false);
             }
         }
+        /*if (collision.contacts[0].otherCollider.gameObject.CompareTag("Hand Enemy"))
+        {
+            //Debug.Log("golpeado por enemy");
+            life -= 5f;
+            if (life == 0)
+            {
+                onDeath();
+                onDeath?.Invoke();
+            }
+        }*/
     }
 
 

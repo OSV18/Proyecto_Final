@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //payerScript =  GameManager.player
-       // PlayerContoller.onDeath += GameOver;
+        PlayerContoller.onDeath += GameOver;
+     
     }
 
     // Update is called once per frame
@@ -63,7 +63,8 @@ public class GameManager : MonoBehaviour
     {
         if (life == 0)
         {
-            Debug.Log("Game Over");
+            Debug.Log("GAME OVER");
+            scorInstanciado = 0;
         }
     }
 }

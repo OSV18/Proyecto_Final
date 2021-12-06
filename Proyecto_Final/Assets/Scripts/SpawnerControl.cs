@@ -8,9 +8,10 @@ public class SpawnerControl : MonoBehaviour
     [SerializeField] float startDelay = 2f;
     [SerializeField] float spawnlapso = 2f;
     [SerializeField] Difficulmode difficulty;
-    [SerializeField] GameObject[] enemys;
+    [SerializeField] GameObject enemys;
+    [SerializeField] private GameObject myObjetct;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class SpawnerControl : MonoBehaviour
                 InvokeRepeating("SpawndEnemy", (startDelay - 1f), (spawnlapso - 2f));
                 break;
         }
+
+        PlayerContoller.onDeath += OnDeadHandle;
     }
 
     // Update is called once per frame
@@ -37,8 +40,14 @@ public class SpawnerControl : MonoBehaviour
 
     private void SpawndEnemy()
     {
-        int enemyIndex = Random.Range(0, enemys.Length);
-        Instantiate(enemys[enemyIndex], transform.position, enemys[enemyIndex].transform.rotation);
+        Instantiate(enemys,transform.position, enemys.transform.rotation);
     }
+
+    private void OnDeadHandle()
+    {
+        Destroy(myObjetct);
+    }
+
+
 
 }

@@ -10,7 +10,7 @@ public class HUDCOntroller : MonoBehaviour
     [SerializeField] private Text textCannet;
     [SerializeField] private Text textWater;
 
-    [SerializeField] private TextMeshProUGUI texLive;
+    [SerializeField] private TextMeshProUGUI textLive;
 
     [SerializeField] private InventoryManagers mgInventory;
     [SerializeField] private Image lifeBar;
@@ -21,8 +21,8 @@ public class HUDCOntroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject.Find("Player").GetComponent<PlayerContoller>().onDeath += OnDeadHandler;
-        //PlayerContoller.onDeath += OnDeadHandler;
+        PlayerContoller.onDeath += OnDeadHandler;
+
     }
 
     // Update is called once per frame
@@ -46,11 +46,13 @@ public class HUDCOntroller : MonoBehaviour
         GameManager.Instance.GetLife();
         life = Mathf.Clamp(life, 0, 100);
         lifeBar.fillAmount = life / 100;
+        GameManager.Instance.addScore();
+        
     }
 
     private void OnDeadHandler()
     {
-        
+        textLive.text = "Game Over";
     }
 
 

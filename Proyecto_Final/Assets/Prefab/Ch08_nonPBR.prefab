@@ -2925,7 +2925,6 @@ GameObject:
   - component: {fileID: 5791146384684764725}
   - component: {fileID: 919132147726158719}
   - component: {fileID: 4727043828805893313}
-  - component: {fileID: 7934840526454984939}
   - component: {fileID: 919132147726158723}
   - component: {fileID: 3880150156359430358}
   m_Layer: 0
@@ -3025,21 +3024,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8388608
-  life: 100
---- !u!114 &7934840526454984939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9087759407752324645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8518a5088b96d664b92e7ea34c400ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   lifeBar: {fileID: 0}
-  life: 100
+  myObjetct: {fileID: 9087759407752324645}
+  life: 10
 --- !u!114 &919132147726158723
 MonoBehaviour:
   m_ObjectHideFlags: 0

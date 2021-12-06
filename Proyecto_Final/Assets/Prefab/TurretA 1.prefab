@@ -194,7 +194,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4141309698364725591}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 60.45292, y: 0.3599987, z: -88.03308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -225,13 +225,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb6051fd2f9aa24fadf95222e8c5bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceRay: 10
+  distanceRay: 15
   shootOrigen: {fileID: 5433732442574170393}
   shootCooldown: 1
   timeSoot: 0.5
   bulletPrefab: {fileID: 3444076533819560753, guid: 3babc54e359e1a9438205a53e38837d4, type: 3}
   turnTorett: {x: 0, y: 0, z: 1}
-  range: 15
+  range: 18
   ponitRotate: {fileID: 5433732443679507026}
   enemyTap: Enemy
 --- !u!23 &4120685753653152659
