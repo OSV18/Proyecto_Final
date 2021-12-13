@@ -2921,11 +2921,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8454916371719584927}
-  - component: {fileID: 5791146384684764725}
   - component: {fileID: 919132147726158719}
   - component: {fileID: 4727043828805893313}
   - component: {fileID: 919132147726158723}
   - component: {fileID: 1397285659}
+  - component: {fileID: 6165560679654050337}
   m_Layer: 0
   m_Name: Ch08_nonPBR
   m_TagString: Player
@@ -2956,19 +2956,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5791146384684764725
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9087759407752324645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4795027, y: 0.4639685, z: 0.47448075}
-  m_Center: {x: -0.004909634, y: 0.0220713, z: 0.046658337}
 --- !u!95 &919132147726158719
 Animator:
   serializedVersion: 3
@@ -3032,13 +3019,29 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.64
   m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.85, z: 0}
+--- !u!54 &6165560679654050337
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087759407752324645}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9143970216821620656
 GameObject:
   m_ObjectHideFlags: 0

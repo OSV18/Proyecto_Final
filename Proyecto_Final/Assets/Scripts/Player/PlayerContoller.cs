@@ -119,11 +119,27 @@ public class PlayerContoller : MonoBehaviour
             mgInventory.SeeInventory();
             mgInventory.CountConsum(consumable);
         }
-        
+
         if (other.gameObject.layer == 23)
         {
             isGrounded = true;
         }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Golpeado por Enemy");
+            life -= 5f;
+            onDamage?.Invoke(true);
+
+            if (life == 0)
+            {
+
+                onDeath?.Invoke();
+                myObjetct.SetActive(false);
+
+            }
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -131,6 +147,11 @@ public class PlayerContoller : MonoBehaviour
         if (other.gameObject.layer == 23)
         {
             isGrounded = false;
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            onDamage?.Invoke(false);
         }
     }
 
