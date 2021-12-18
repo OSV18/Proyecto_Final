@@ -109,6 +109,7 @@ public class PlayerContoller : MonoBehaviour
     }
 
     private bool isGrounded = true;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Consumables"))
