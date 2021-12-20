@@ -9,6 +9,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float life = 100;
     [SerializeField] float SpeedPlayer = 4F;
     [SerializeField] private Vector3 velocity;
+    [SerializeField] private float x, y;
 
     [SerializeField] private Transform cam;
     [SerializeField] float mouseSesitivity = 2f;
@@ -17,7 +18,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private GameObject myObjetct;
     private float Gavity = -9.81f;
 
-
+    private bool isGrounded = true;
     private InventoryManagers mgInventory;
     private Rigidbody rbPlayer;
     private CharacterController cc;
@@ -33,7 +34,7 @@ public class PlayerContoller : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         animaPlayer.SetBool("isRun", false);
-        //animaPlayer.SetBool("isFire", false);
+        animaPlayer.SetBool("isJump", false);
         mgInventory = GetComponent<InventoryManagers>();
         
     }
@@ -49,16 +50,20 @@ public class PlayerContoller : MonoBehaviour
     {
         Move();
         RotatePlayer();
+        Jump();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             if (isGrounded)
             {
+
                 Jump();
             }
-            
-        }
-                
+
+                        
+        }*/
+
         if (Input.GetButtonDown("Fire1"))
         {
             animaPlayer.SetBool("isAttack", true);
@@ -74,8 +79,8 @@ public class PlayerContoller : MonoBehaviour
         velocity.y += Gavity * Time.deltaTime;
         cc.Move(velocity * Time.deltaTime);
 
-
-
+        animaPlayer.SetFloat("VelX", x);
+        animaPlayer.SetFloat("VelY", y);
     }
 
     private void RotatePlayer()
@@ -88,10 +93,10 @@ public class PlayerContoller : MonoBehaviour
 
     private void Move()
     {
-        float ejeHorizontal = Input.GetAxis("Horizontal");
-        float ejeVertical = Input.GetAxis("Vertical");
+        x = Input.GetAxis("Horizontal");
+        y = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(ejeHorizontal, 0, ejeVertical).normalized;
+        Vector3 direction = new Vector3(x, 0, y).normalized;
         
         if(direction.magnitude >= 0.1f)
         {
@@ -108,7 +113,7 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    private bool isGrounded = true;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -124,6 +129,10 @@ public class PlayerContoller : MonoBehaviour
         if (other.gameObject.layer == 23)
         {
             isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
 
         if (other.gameObject.CompareTag("Enemy"))
@@ -145,9 +154,14 @@ public class PlayerContoller : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 23)
+        if (other.gameObject.layer != 23)
         {
+            Debug.Log("no estas en el suelo");
             isGrounded = false;
+        }
+        else
+        {
+            isGrounded = true;
         }
 
         if (other.gameObject.CompareTag("Enemy"))
@@ -161,8 +175,18 @@ public class PlayerContoller : MonoBehaviour
     private void Jump()
     {
         Debug.Log("salta");
-        velocity.y = Mathf.Sqrt(-5f * Gavity);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
+            velocity.y = Mathf.Sqrt(-5f * Gavity);
+            animaPlayer.SetBool("isJump", true);
+        }
+
+        else
+        {
+            animaPlayer.SetBool("isJump", false);
+        }
+        
     }
 
 
