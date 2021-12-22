@@ -5,11 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< Updated upstream
-      ticks: 637749255061422817
-=======
       ticks: 637756317700000000
->>>>>>> Stashed changes
     m_Hash: 2189382074
   m_LockFileStatus:
     m_FilePath: D:/OCMIR/Proyecto FInal/Proyecto_Final/Proyecto_Final/Packages/packages-lock.json
@@ -17,11 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< Updated upstream
-      ticks: 637749255061927262
-=======
       ticks: 637756317700000000
->>>>>>> Stashed changes
     m_Hash: 2049423751
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
