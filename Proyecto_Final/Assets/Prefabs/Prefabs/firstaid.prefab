@@ -106,11 +106,15 @@ GameObject:
   - component: {fileID: 23692305094115228}
   - component: {fileID: 95161500554173096}
   - component: {fileID: 330726483}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Proyecto_Final/Assets/Prefabs/Prefabs/firstaid.prefab
   - component: {fileID: 2345003092905818990}
 =======
   - component: {fileID: 6428745137295153415}
 >>>>>>> Stashed changes:Proyecto_Final/Assets/Characters/Survival Tools/Prefabs/firstaid.prefab
+=======
+  - component: {fileID: 2345003092905818990}
+>>>>>>> Stashed changes
   m_Layer: 5
   m_Name: firstaid
   m_TagString: Consumables
@@ -129,11 +133,15 @@ Transform:
   m_LocalPosition: {x: 0.03233479, y: 0.07253002, z: 0.0018367425}
   m_LocalScale: {x: 0.21121144, y: 0.21121144, z: 0.21121144}
   m_Children:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Proyecto_Final/Assets/Prefabs/Prefabs/firstaid.prefab
   - {fileID: 1782350045}
 =======
   - {fileID: 7879773690118655922}
 >>>>>>> Stashed changes:Proyecto_Final/Assets/Characters/Survival Tools/Prefabs/firstaid.prefab
+=======
+  - {fileID: 1782350045}
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
@@ -207,8 +215,11 @@ Animator:
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &330726483
 BoxCollider:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Proyecto_Final/Assets/Prefabs/Prefabs/firstaid.prefab
 =======
+=======
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -218,6 +229,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< Updated upstream
   m_Size: {x: 1.3027416, y: 0.34755975, z: 1.1316458}
   m_Center: {x: -0.0076597133, y: 0.1600012, z: 0.020712674}
 --- !u!114 &6428745137295153415
@@ -233,10 +245,13 @@ MonoBehaviour:
   m_Enabled: 1
 <<<<<<< Updated upstream:Proyecto_Final/Assets/Prefabs/Prefabs/firstaid.prefab
   serializedVersion: 2
+=======
+>>>>>>> Stashed changes
   m_Size: {x: 1.3027416, y: 1.7246113, z: 1.6649258}
   m_Center: {x: -0.0076597133, y: 0.25240728, z: 0.28735277}
 --- !u!114 &2345003092905818990
 MonoBehaviour:
+<<<<<<< Updated upstream
 =======
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71e297c6a2b066540a6397f0485bdcb0, type: 3}
@@ -245,11 +260,16 @@ MonoBehaviour:
 --- !u!1 &2650254017441963953
 GameObject:
 >>>>>>> Stashed changes:Proyecto_Final/Assets/Characters/Survival Tools/Prefabs/firstaid.prefab
+=======
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Proyecto_Final/Assets/Prefabs/Prefabs/firstaid.prefab
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1987713744733760}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -257,6 +277,7 @@ GameObject:
   m_Name: 
   m_EditorClassIdentifier: 
   consumables: 0
+<<<<<<< Updated upstream
 =======
   serializedVersion: 6
   m_Component:
@@ -346,3 +367,5 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 >>>>>>> Stashed changes:Proyecto_Final/Assets/Characters/Survival Tools/Prefabs/firstaid.prefab
+=======
+>>>>>>> Stashed changes
