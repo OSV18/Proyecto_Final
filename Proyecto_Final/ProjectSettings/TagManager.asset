@@ -9,6 +9,8 @@ TagManager:
   - Consumables
   - Hand Enemy
   - Item
+  - WeaponManager
+  - ToolsManager
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,59 @@ public class Item : MonoBehaviour
 
     [HideInInspector] public bool pickedUP;
 
+    [HideInInspector] public bool equipped;
+
+    private GameObject toolsManager;
+    private GameObject tools;
+    private bool playersTools;
+
+    private void Start()
+    {
+        toolsManager = GameObject.FindWithTag("ToolsManager");
+
+        if (!playersTools)
+        {
+            int alltools = toolsManager.transform.childCount;
+
+            for (int i = 0; i < alltools; i++)
+            {
+                if (toolsManager.transform.GetChild(i).gameObject.GetComponent<Item>().ID==ID)
+                {
+                    tools = toolsManager.transform.GetChild(i).gameObject;
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (equipped)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                equipped = false;
+            }
+            if (equipped == false)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void ItemUsage()
+    {
+        if (type == "Tools")
+        {
+            tools.SetActive(true);
+            tools.GetComponent<Item>().equipped = true;
+        }
+        if (type == "Tools")
+        {
+
+        }
+    }
+
+
     public void SetID(int newID)
     {
         ID = newID;

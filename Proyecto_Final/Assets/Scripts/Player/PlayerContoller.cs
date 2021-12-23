@@ -185,7 +185,6 @@ public class PlayerContoller : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("salta");
         if (Input.GetKeyDown(KeyCode.Space))
         {
 

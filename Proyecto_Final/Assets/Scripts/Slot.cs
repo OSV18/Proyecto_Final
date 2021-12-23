@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] public GameObject item;
     [SerializeField] public int ID;
@@ -24,10 +25,18 @@ public class Slot : MonoBehaviour
         slotIconGameObjet.GetComponent<Image>().sprite = icon;
     }
 
-    public void GetEmpty(bool empty)
+    public void UseItem()
     {
-        
+        item.GetComponent<Item>().ItemUsage();
     }
+
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        UseItem();
+    }
+    
+       
+    
 
     public bool SetEmpty()
     {
