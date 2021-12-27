@@ -38,14 +38,14 @@ public class PlayerContoller : MonoBehaviour
         animaPlayer.SetBool("isRun", false);
         animaPlayer.SetBool("isJump", false);
         mgInventory = GetComponent<InventoryManagers>();
-        
+
     }
 
 
     void FixedUpdate()
     {
 
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -99,7 +99,7 @@ public class PlayerContoller : MonoBehaviour
         float horizontalRotation = Input.GetAxis("Mouse X");
         transform.Rotate(0, horizontalRotation * mouseSesitivity, 0);
 
-        
+
     }
 
     private void Move()
@@ -108,14 +108,14 @@ public class PlayerContoller : MonoBehaviour
         y = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(x, 0, y).normalized;
-        
-        if(direction.magnitude >= 0.1f)
+
+        if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             Vector3 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             animaPlayer.SetBool("isRun", true);
             cc.Move(moveDir.normalized * SpeedPlayer * Time.deltaTime);
-        }        
+        }
 
         else
         {
@@ -124,7 +124,7 @@ public class PlayerContoller : MonoBehaviour
 
     }
 
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -160,8 +160,29 @@ public class PlayerContoller : MonoBehaviour
 
             }
         }
+        
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Radiation"))
+        {
+            Debug.Log("Entro a Zona Radiactiva");
+            life -= 0.05f;
+            onDamage?.Invoke(true);
+
+            if (life <= 0)
+            {
+
+                onDeath?.Invoke();
+                myObjetct.SetActive(false);
+
+            }
+        }
+    }
+
+
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -181,7 +202,7 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    
+
 
     private void Jump()
     {
@@ -196,7 +217,7 @@ public class PlayerContoller : MonoBehaviour
         {
             animaPlayer.SetBool("isJump", false);
         }
-        
+
     }
 
 
@@ -221,10 +242,10 @@ public class PlayerContoller : MonoBehaviour
 
             if (life == 0)
             {
-                
+
                 onDeath?.Invoke();
                 myObjetct.SetActive(false);
-                
+
             }
         }
         /*if (collision.contacts[0].otherCollider.gameObject.CompareTag("Hand Enemy"))
