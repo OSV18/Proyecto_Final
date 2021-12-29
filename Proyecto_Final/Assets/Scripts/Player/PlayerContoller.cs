@@ -13,6 +13,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float energy = 100;
 
     [SerializeField] private Transform cam;
+    [SerializeField] private Transform cam2;
     [SerializeField] float mouseSesitivity = 2f;
     [SerializeField] Animator animaPlayer;
     [SerializeField] private Image lifeBar;
@@ -112,6 +113,13 @@ public class PlayerContoller : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            Vector3 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+            animaPlayer.SetBool("isRun", true);
+            cc.Move(moveDir.normalized * SpeedPlayer * Time.deltaTime);
+        }
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam2.eulerAngles.y;
             Vector3 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             animaPlayer.SetBool("isRun", true);
             cc.Move(moveDir.normalized * SpeedPlayer * Time.deltaTime);

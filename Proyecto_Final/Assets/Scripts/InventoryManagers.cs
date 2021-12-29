@@ -62,7 +62,7 @@ public class InventoryManagers : MonoBehaviour
 
             Item item = itemPickedUp.GetComponent<Item>();
 
-            AddItem(itemPickedUp, item.ID, item.type,item.description,item.icon);
+            AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
         }
     }
 

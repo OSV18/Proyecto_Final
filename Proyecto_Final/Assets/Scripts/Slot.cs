@@ -43,5 +43,4 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         return empty;
     }
 
-   
 }
