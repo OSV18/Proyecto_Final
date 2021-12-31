@@ -16,6 +16,6 @@ MonoBehaviour:
   hp: 300
   armored: 500
   distanceRay: 4
-  speed: 10
+  speed: 100
   rangeOfView: 7
   minimDistan: 1

@@ -245,10 +245,10 @@ public class PlayerContoller : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Golpeado por Enemy");
-            life -= 5f;
+            life -= 2f;
             onDamage?.Invoke(true);
 
-            if (life == 0)
+            if (life == 0f)
             {
 
                 onDeath?.Invoke();

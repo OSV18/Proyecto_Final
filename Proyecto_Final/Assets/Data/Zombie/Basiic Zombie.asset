@@ -15,7 +15,7 @@ MonoBehaviour:
   ZombieName: Basic Zombie
   hp: 100
   armored: 0
-  distanceRay: 10
-  speed: 5
-  rangeOfView: 0
+  distanceRay: 2
+  speed: 10
+  rangeOfView: 5
   minimDistan: 0

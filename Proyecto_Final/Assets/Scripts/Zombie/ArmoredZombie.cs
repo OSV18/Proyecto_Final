@@ -5,10 +5,10 @@ using UnityEngine;
 public class ArmoredZombie : Zombie
 {
  
-    [SerializeField] private GameObject player;
+
     [SerializeField] Transform[] waypoints;
 
-    private bool iSeePlayer = false;
+
     private bool goBack = false;
     private int currenIndex = 0;
 
@@ -74,7 +74,7 @@ public class ArmoredZombie : Zombie
         rbZombie.AddForce(playerDirection * myData.speed, ForceMode.Impulse);
     }
 
-    public Vector3 GetPlayerDirection()
+    public override Vector3 GetPlayerDirection()
     {
         return player.transform.position - transform.position;
     }

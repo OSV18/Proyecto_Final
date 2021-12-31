@@ -20,7 +20,7 @@ public class LifePlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("golpeado por enemy");
-            life -= 5f;
+            life -= 2f;
         }
     }
 }
