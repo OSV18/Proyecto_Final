@@ -30,6 +30,7 @@ public class PlayerContoller : MonoBehaviour
     public static event Action onDeath;
     public static event Action<int> onScore;
     public static event Action<bool> onDamage;
+    public static event Action<bool> onPickUp;
 
 
     // Start is called before the first frame update

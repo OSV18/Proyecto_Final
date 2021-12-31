@@ -60,7 +60,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\Prefabs\OS_Turrets\TurretA\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Scripts\DayControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\Torret\TorretActivator.cs" />
@@ -105,7 +104,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Destroyed_city_FREE\Standard Assets\Water (Pro Only)\Sources\Scripts\Water.cs" />
-    <Compile Include="Assets\Prefabs\OS_Turrets\TurretA\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
@@ -115,6 +113,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\ConsumablesControl.cs" />
     <Compile Include="Assets\Scripts\Zombie\ArmoredZombie.cs" />
+    <Compile Include="Assets\Scripts\ResourGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
