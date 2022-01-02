@@ -4,35 +4,23 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] public int ID;
-    [SerializeField] public string type;
-    [SerializeField] public string description;
-    [SerializeField] public  Sprite icon;
+    [SerializeField] private GameManager.typesItem item;
 
-    [HideInInspector] public bool pickedUP;
+    private bool IsPickedUP;
 
-    [HideInInspector] public bool equipped;
+    private bool equipped;
 
     private GameObject toolsManager;
     private GameObject tools;
     private bool playersTools;
+    private GameObject resourceManager;
+    private GameObject resource;
+    private bool playersResource;
 
     private void Start()
     {
-        toolsManager = GameObject.FindWithTag("ToolsManager");
-
-        if (!playersTools)
-        {
-            int alltools = toolsManager.transform.childCount;
-
-            for (int i = 0; i < alltools; i++)
-            {
-                if (toolsManager.transform.GetChild(i).gameObject.GetComponent<Item>().ID==ID)
-                {
-                    tools = toolsManager.transform.GetChild(i).gameObject;
-                }
-            }
-        }
+        
+        
     }
 
     private void Update()
@@ -52,51 +40,27 @@ public class Item : MonoBehaviour
 
     public void ItemUsage()
     {
-        if (type == "Tools")
+        /*if (type == "Tools")
         {
             tools.SetActive(true);
             tools.GetComponent<Item>().equipped = true;
         }
-        if (type == "Tools")
+        if (type == "Resource")
         {
+            resource.SetActive(true);
+            resource.GetComponent<Item>().equipped = true;
 
-        }
-    }
-
-
-    public void SetID(int newID)
-    {
-        ID = newID;
-    }
-    public void SetType(string newType)
-    {
-        type = newType;
-    }
-    public void SetDescription(string newDescription)
-    {
-        description = newDescription;
-    }
-    public void SetIcon(Sprite newIcon)
-    {
-        icon = newIcon;
+        }*/
     }
 
+    
 
-    public int GetID()
+    
+
+    public GameManager.typesItem GetTypeItem()
     {
-        return ID;
-    }
-    public new string GetType()
-    {
-        return type;
-    }
-    public string GetDescription()
-    {
-        return description;
-    }
-    public Sprite GetIcon()
-    {
-        return icon;
+        return item;
     }
 
+    
 }

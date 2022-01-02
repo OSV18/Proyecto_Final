@@ -12,6 +12,7 @@ TagManager:
   - WeaponManager
   - ToolsManager
   - Radiation
+  - ResourceManager
   layers:
   - Default
   - TransparentFX

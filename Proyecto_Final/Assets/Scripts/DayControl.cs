@@ -29,12 +29,12 @@ public class DayControl : MonoBehaviour
         grados = min / 4;
         transform.localEulerAngles = new Vector3(grados, -90, 0);
 
-        ActivateLight();
+        //ActivateLight();
 
 
     }
 
-    private void ActivateLight()
+    /*private void ActivateLight()
     {
         for (int i = 0; i < streetLight.Length; i++)
         {
@@ -46,7 +46,7 @@ public class DayControl : MonoBehaviour
 
 
         }
-    }
+    }*/
 
 }
 

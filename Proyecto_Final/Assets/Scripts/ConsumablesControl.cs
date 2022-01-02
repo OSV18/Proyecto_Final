@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ConsumablesControl : MonoBehaviour
 {
-    [SerializeField] private GameManager.typesConsumables consumables;
+    //[SerializeField] private GameManager.typesConsumables consumables;
 
 
     private bool pickedUp;
@@ -21,8 +21,9 @@ public class ConsumablesControl : MonoBehaviour
         
     }
 
-    public GameManager.typesConsumables GetTypeConsumable()
+    /*public GameManager.typesConsumables GetTypeConsumable()
     {
         return consumables;
-    }
+    }*/
+    
 }

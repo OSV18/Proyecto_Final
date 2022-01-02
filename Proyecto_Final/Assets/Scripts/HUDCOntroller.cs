@@ -6,9 +6,12 @@ using TMPro;
 
 public class HUDCOntroller : MonoBehaviour
 {
-    [SerializeField] private Text textFirst;
-    [SerializeField] private Text textCannet;
-    [SerializeField] private Text textWater;
+    [SerializeField] private TextMeshProUGUI textFirst;
+    [SerializeField] private TextMeshProUGUI textFood;
+    [SerializeField] private TextMeshProUGUI textWater;
+    [SerializeField] private TextMeshProUGUI textFuel;
+    [SerializeField] private TextMeshProUGUI textMask;
+    [SerializeField] private TextMeshProUGUI textFlashlight;
 
     [SerializeField] private TextMeshProUGUI textLive;
 
@@ -29,16 +32,19 @@ public class HUDCOntroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateConsumableUI();
+        UpdateItemUI();
 
     }
 
-    void UpdateConsumableUI()
+    public void UpdateItemUI()
     {
-        int[] consumCount = mgInventory.GetConsumablesQuantity();
-        textFirst.text ="x" + consumCount[0];
-        textCannet.text = "x" + consumCount[1];
-        textWater.text = "x" + consumCount[2];
+        /*int[] itemCount = mgInventory.GetItemQuantity();
+        textFirst.text = "x" + itemCount[0];
+        textFood.text = "x" + itemCount[1];
+        textWater.text = "x" + itemCount[2];
+        textFuel.text = "x" + itemCount[3];
+        textMask.text = "x" + itemCount[4];
+        textFlashlight.text = "x" + itemCount[5];*/
     }
 
     void LifeBar()

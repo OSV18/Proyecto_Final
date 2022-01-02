@@ -10,8 +10,13 @@ public class GameManager : MonoBehaviour
     public static float energy;
     private int scorInstanciado;
 
+    public static int ID;
+    public static string type;
+    public static string description;
+    public static Sprite icon;
 
-    public enum typesConsumables { Firstaid, Canned, Water }
+
+    public enum typesItem { Firstaid, Fuel, Water, Flashlight, Mask, Food }
     private void Awake()
     {
         if(Instance != null)
@@ -78,4 +83,5 @@ public class GameManager : MonoBehaviour
             scorInstanciado = 0;
         }
     }
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManagers : MonoBehaviour
 {
-    [SerializeField] private int[] consumablesQuantity = { 0, 0, 0};
+    [SerializeField] private int[] itemQuantity = { 0, 0, 0, 0, 0 ,0};
     Dictionary<string, GameObject> inventory;
     private bool inventoreEnabled;
     [SerializeField] private GameObject Inventory;
@@ -54,62 +54,31 @@ public class InventoryManagers : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+   
+   
+    public void CountItem(GameObject item)
     {
-        if (other.gameObject.CompareTag("Item"))
+        Item c = item.GetComponent<Item>();
+
+        switch (c.GetTypeItem())
         {
-            GameObject itemPickedUp = other.gameObject;
-
-            Item item = itemPickedUp.GetComponent<Item>();
-
-            AddItem(itemPickedUp, item.ID, item.type, item.description, item.icon);
-        }
-    }
-
-    public void AddItem(GameObject itemObjet, int itemID, string itemType, string itemDescription, Sprite itemIcon)
-    {
-        for (int i = 0; i < allSlots; i++)
-        {
-            if (slot[i].GetComponent<Slot>().empty)
-            {
-                itemObjet.GetComponent<Item>().pickedUP = true;
-
-                slot[i].GetComponent<Slot>().item = itemObjet;
-                slot[i].GetComponent<Slot>().ID = itemID;
-                slot[i].GetComponent<Slot>().type = itemType;
-                slot[i].GetComponent<Slot>().description = itemDescription;
-                slot[i].GetComponent<Slot>().icon = itemIcon;
-
-                itemObjet.transform.parent = slot[i].transform;
-                itemObjet.SetActive(false);
-
-                slot[i].GetComponent<Slot>().UpdateSlot();
-
-                slot[i].GetComponent<Slot>().empty = false;
-
-                return;
-            }
-     
-        
-        }
-    }
-    
-    
-
-    public void CountConsum(GameObject consumable)
-    {
-        ConsumablesControl c = consumable.GetComponent<ConsumablesControl>();
-
-        switch (c.GetTypeConsumable())
-        {
-            case GameManager.typesConsumables.Firstaid:
-                consumablesQuantity[0]++;
+            case GameManager.typesItem.Firstaid:
+                itemQuantity[0]++;
                 break;
-            case GameManager.typesConsumables.Canned:
-                consumablesQuantity[1]++;
+            case GameManager.typesItem.Food:
+                itemQuantity[1]++;
                 break;
-            case GameManager.typesConsumables.Water:
-                consumablesQuantity[2]++;
+            case GameManager.typesItem.Water:
+                itemQuantity[2]++;
+                break;
+            case GameManager.typesItem.Fuel:
+                itemQuantity[3]++;
+                break;
+            case GameManager.typesItem.Mask:
+                itemQuantity[4]++;
+                break;
+            case GameManager.typesItem.Flashlight:
+                itemQuantity[5]++;
                 break;
             default:
                 Debug.Log("NO SE PUEDE CONTAR");
@@ -117,9 +86,9 @@ public class InventoryManagers : MonoBehaviour
         }
     }
 
-    public int[] GetConsumablesQuantity()
+    public int[] GetItemQuantity()
     {
-        return consumablesQuantity; 
+        return itemQuantity;
     }
 
     public void AddInventory(string key,GameObject item)

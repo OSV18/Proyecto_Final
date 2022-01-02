@@ -19,18 +19,21 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private Image lifeBar;
     [SerializeField] private Image energyBar;
     [SerializeField] private GameObject myObjetct;
+    [SerializeField] private AudioClip walkSound;
+    
     private float Gavity = -9.81f;
 
     private bool isGrounded = true;
     private InventoryManagers mgInventory;
     private Rigidbody rbPlayer;
     private CharacterController cc;
+    private AudioSource audioPlayer;
 
     //EVENT
     public static event Action onDeath;
-    public static event Action<int> onScore;
+    //public static event Action<int> onScore;
     public static event Action<bool> onDamage;
-    public static event Action<bool> onPickUp;
+    //public static event Action<bool> onPickUp;
 
 
     // Start is called before the first frame update
@@ -40,7 +43,7 @@ public class PlayerContoller : MonoBehaviour
         animaPlayer.SetBool("isRun", false);
         animaPlayer.SetBool("isJump", false);
         mgInventory = GetComponent<InventoryManagers>();
-
+        audioPlayer = GetComponent<AudioSource>();
     }
 
 
@@ -117,6 +120,10 @@ public class PlayerContoller : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             animaPlayer.SetBool("isRun", true);
             cc.Move(moveDir.normalized * SpeedPlayer * Time.deltaTime);
+            if (!audioPlayer.isPlaying)
+            {
+                audioPlayer.PlayOneShot(walkSound, 0.1f);
+            }
         }
         if (direction.magnitude >= 0.1f)
         {
@@ -137,13 +144,13 @@ public class PlayerContoller : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Consumables"))
+        if (other.gameObject.CompareTag("Item"))
         {
-            GameObject consumable = other.gameObject;
-            consumable.SetActive(false);
-            mgInventory.AddInventory(consumable.name, consumable);
+            GameObject item = other.gameObject;
+            item.SetActive(false);
+            mgInventory.AddInventory(item.name, item);
             mgInventory.SeeInventory();
-            mgInventory.CountConsum(consumable);
+            mgInventory.CountItem(item);
         }
 
         if (other.gameObject.layer == 23)
@@ -169,6 +176,7 @@ public class PlayerContoller : MonoBehaviour
 
             }
         }
+
         
 
     }
@@ -176,7 +184,7 @@ public class PlayerContoller : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Radiation"))
         {
-            Debug.Log("Entro a Zona Radiactiva");
+           
             life -= 0.05f;
             onDamage?.Invoke(true);
 
